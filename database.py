@@ -1,12 +1,12 @@
 import os
-from pymongo import mongo_client
+from pymongo import MongoClient
 from dotenv import load_dotenv
 
 load_dotenv()
 
+client = MongoClient(os.getenv("DB_URL"))
 
-client = mongo_client.MongoClient(os.environ.get("DB_URL"))
-
-accounts_collection = client["user_money"]["accounts"]
-users_collection = client["user_money"]["users"]
-transactions_collection = client["user_money"]["transactions"]
+db = client["user_money"] 
+accounts_collection = db["accounts"]
+users_collection = db["users"]
+transactions_collection = db["transactions"]
