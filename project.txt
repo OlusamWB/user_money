@@ -1,0 +1,30 @@
+Functional requirements
+
+1. User to be able to sign up and login, and view user information
+2. User should be able to create account, view account details
+3.  User should be able to deposit and withdraw funds from account
+4. user should be able to view account statement
+
+Non-Functional requirements
+1. User should not be able to withdraw money from account more than 2 times a minute
+2. User account should be protected for user-only access (JWT for security and authentication)
+
+
+
+API design (REST)
+Entities - 
+    User - first_name, last_name, email, BVN, phone  /users
+    Account - user_id, account_type, balance, created_at /accounts
+    Transactions - account_id, transaction_type, amount, date /accounts/{id}/transactions
+
+Endpoints.
+A. User
+    1. POST /register
+    2. GET /login, /token
+    3. GET /user/{id}
+B. Account 
+    1. POST /accounts
+    2. GET /accounts/{id}
+    3. POST /accounts/{id}/withdraw 
+    4. POST /accounts/{id}/deposit
+
